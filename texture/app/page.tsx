@@ -1,4 +1,7 @@
+"use client";
+
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -27,6 +30,23 @@ export default function Home() {
 	});
 	
 	return (
-		<main className=""></main>
+		<main className="p-24">
+			<Form {...form}>
+				<form>
+					<FormField 
+						control={form.control}
+						name="title"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Title</FormLabel>
+								<FormControl>
+									<Input placeholder="Main title for your product" {...field} />
+								</FormControl>
+							</FormItem>
+						)}
+					/>
+				</form>
+			</Form>
+		</main>
 	)
 }
