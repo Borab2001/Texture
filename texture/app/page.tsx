@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Home() {
 
@@ -21,6 +22,7 @@ export default function Home() {
 			.trim(),
 	})
 	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
 		mode: 'onChange', // tracking everytime there is a change
 		defaultValues: {
 			title: "",
