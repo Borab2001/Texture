@@ -17,8 +17,8 @@ export default function Home() {
 		price: z.number().min(5, { message: "Oops... the price is too low 🤓" }),
 		description: z
 			.string()
-			.min(5, { message: "Oops... the description isn't long enough 😅" })
-			.max(100, { message: "Oops... the description is too long 😭" })
+			.min(5, { message: "Oops... the description isn't long enough 😢" })
+			.max(100, { message: "Oops... the description is too long 🥲" })
 			.trim(),
 	})
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -30,11 +30,15 @@ export default function Home() {
 			description: "",
 		}
 	});
+
+	function onSubmit(values: z.infer<typeof formSchema>) {
+	
+	}
 	
 	return (
 		<main className="p-24">
 			<Form {...form}>
-				<form>
+				<form onSubmit={form.handleSubmit(onSubmit)}>
 					<FormField 
 						control={form.control}
 						name="title"
@@ -44,6 +48,17 @@ export default function Home() {
 								<FormControl>
 									<Input placeholder="Main title for your product" {...field} />
 								</FormControl>
+							</FormItem>
+						)}
+					/>
+
+					<FormField 
+						control={form.control}
+						name="description"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Title</FormLabel>
+								<FormControl></FormControl>
 							</FormItem>
 						)}
 					/>
