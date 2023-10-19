@@ -27,6 +27,7 @@ export default function Tiptap({
 
     return (
         <div className="flex flex-col justify-stretch min-h-[250px]">
+            <ToolBar editor={editor} />
             <EditorContent editor={editor} />
         </div>
     )
