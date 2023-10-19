@@ -39,7 +39,7 @@ export default function Home() {
 	return (
 		<main className="p-24">
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)}>
+				<form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
 					<FormField 
 						control={form.control}
 						name="title"
@@ -58,7 +58,7 @@ export default function Home() {
 						name="description"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Title</FormLabel>
+								<FormLabel>Description</FormLabel>
 								<FormControl>
 									<Tiptap description={field.name} onChange={field.onChange} />
 								</FormControl>
