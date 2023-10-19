@@ -2,6 +2,7 @@
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import Tiptap from "@/components/ui/Tiptap";
 
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -58,7 +59,9 @@ export default function Home() {
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Title</FormLabel>
-								<FormControl></FormControl>
+								<FormControl>
+									<Tiptap description={field.name} onChange={field.onChange} />
+								</FormControl>
 							</FormItem>
 						)}
 					/>
